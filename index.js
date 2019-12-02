@@ -1,15 +1,17 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-var cors = require('cors')
+const cors = require('cors');
+require('dotenv').config(); //.env
+
 const feedbacks = require('./feedbacksRout');
 
-const MONGO_DB_ADDRESS = require('./CONFIQ');
 
-mongoose.connect(MONGO_DB_ADDRESS, { useUnifiedTopology: true, useNewUrlParser: true }) 
+mongoose.connect(process.env.MONGO_DB_ADDRESS, { useUnifiedTopology: true, useNewUrlParser: true }) 
     .then(()=> console.log('Connected to MongoDb...'))  
     .catch(err => console.error('Coud not conect to db', err)); 
 
+    
 app.use(express.json());
 app.use(cors())
 app.use('/api/feedback', feedbacks);

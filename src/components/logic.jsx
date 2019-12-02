@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import SERVER_ADDRESS from "../CONFIQ";
 import Visual from "./visual/index";
+
+
 
 class Logic extends Component {
   state = {
@@ -29,7 +30,7 @@ class Logic extends Component {
 
   getPastFeedbacks = () => {
     axios
-      .get(SERVER_ADDRESS)
+      .get(process.env.REACT_APP_SERVER_ADDRESS)
       .then(response => {
         // handle success
         this.setState({ answerFromServer: response.data });
@@ -75,12 +76,12 @@ class Logic extends Component {
       return 1;
     }
   };
-
+  
   hendleSubmit = () => {
     if (this.validateInput()) return;
     console.log("submited");
     axios
-      .post(SERVER_ADDRESS, {
+      .post(process.env.REACT_APP_SERVER_ADDRESS, {
         name: this.state.name,
         email: this.state.email,
         text: this.state.feedback
@@ -92,7 +93,8 @@ class Logic extends Component {
           copyOfArray.unshift(response.data);
           this.setState({
             success: true,
-            answerFromServer: copyOfArray
+            answerFromServer: copyOfArray,
+            feedback: ""
           })
         } else {
           this.setState({
@@ -109,6 +111,7 @@ class Logic extends Component {
   };
 
   render() {
+   
     const {
       name,
       email,

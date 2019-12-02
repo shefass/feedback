@@ -1,7 +1,18 @@
 import React from "react";
+
+import { styled } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+
 import Form from "./form";
 import Welcome from "./welcome";
 import Answer from "./answer";
+
+const StyledContainer = styled(Container)({
+  
+  paddingTop: 10,
+  paddingBottom: 10
+  
+});
 
 const Visual = ({
   name,
@@ -16,7 +27,7 @@ const Visual = ({
   success
 }) => {
   return (
-    <React.Fragment>
+    <StyledContainer maxWidth="sm">
       <Welcome />
       <Form
         name={name}
@@ -29,8 +40,8 @@ const Visual = ({
         error={error}
         success={success}
       />
-      <Answer answerFromServer={answerFromServer}/>
-    </React.Fragment>
+      <Answer answerFromServer={answerFromServer} />
+    </StyledContainer>
   );
 };
 
