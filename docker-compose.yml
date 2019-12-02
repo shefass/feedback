@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  feedback:
+    image: feedback
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 4001:4001
