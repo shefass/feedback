@@ -11,7 +11,9 @@ const Visual = ({
   feedback,
   hendleFeedBackInput,
   hendleSubmit,
-  error
+  error,
+  answerFromServer,
+  success
 }) => {
   return (
     <React.Fragment>
@@ -25,8 +27,9 @@ const Visual = ({
         hendleFeedBackInput={hendleFeedBackInput}
         hendleSubmit={hendleSubmit}
         error={error}
+        success={success}
       />
-      <Answer />
+      <Answer answerFromServer={answerFromServer}/>
     </React.Fragment>
   );
 };

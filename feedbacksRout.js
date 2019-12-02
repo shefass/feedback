@@ -5,7 +5,7 @@ const router = express.Router();
 const { Feedback } = require('./feedbackModel')
 
 router.get('/', async (req, res) => {
-    const feedbacks = await Feedback.find().toArray();
+    const feedbacks = await Feedback.find().sort("-_id"); //sorts by time of creation, - means descending order.
     console.log(feedbacks)
     res.send(feedbacks); 
 });

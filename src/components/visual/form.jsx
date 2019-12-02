@@ -4,7 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
 
-const Form = ({name, hendleNameInput, email, hendleEmailInput, feedback, hendleFeedBackInput, hendleSubmit, error}) => {
+const Form = ({name, hendleNameInput, email, hendleEmailInput, feedback, hendleFeedBackInput, hendleSubmit, error, success}) => {
  
   return (
     <Card>
@@ -14,7 +14,7 @@ const Form = ({name, hendleNameInput, email, hendleEmailInput, feedback, hendleF
           label="Name"
           type="search"
           margin="normal"
-          value={name}
+          value={name} 
           onChange={value => hendleNameInput(value)}
         />
         <TextField
@@ -35,7 +35,7 @@ const Form = ({name, hendleNameInput, email, hendleEmailInput, feedback, hendleF
         />
       </form>
       <Button variant="contained" color={error === ""? "primary":"secondary"} onClick={hendleSubmit}>
-        {error === ""? "Send": error }
+        {success ? "Thank you for your feedback! Good luck": error === "" ? "Send": error}
       </Button>
     </Card>
   );
