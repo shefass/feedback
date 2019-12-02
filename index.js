@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-require('dotenv').config(); //.env
-
+const env = require('dotenv');
+env.config(); //.env
 const feedbacks = require('./feedbacksRout');
 
 

@@ -5,6 +5,6 @@ services:
     image: feedback
     build: .
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
     ports:
       - 4001:4001
