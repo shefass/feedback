@@ -1,4 +1,5 @@
 Frontend was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br />
+Backend: nodejs and MongoDB.<br />
 http://feedback.vaickelionis.com<br />
 
 To run locally: docker run -d -p 3000:3000 -p 4001:4001 shefass/feedback
